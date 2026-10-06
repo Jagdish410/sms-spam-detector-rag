@@ -62,7 +62,7 @@ The TF-IDF + Naive Bayes model was evaluated on a test set of **1,115 messages**
 | Model | Precision (spam) | Recall (spam) | F1 (spam) |
 |---|---:|---:|---:|
 | **Naive Bayes + TF-IDF** | **0.99** | **0.91** | **0.95** |
-| Zero-shot LLM | Not evaluated | Not evaluated | Not evaluated |
+
 
 **Overall accuracy: 99%**
 
