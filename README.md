@@ -6,11 +6,12 @@ A hybrid spam detection system:
 2. **Sentence embeddings + FAISS** retrieve the most similar labeled messages.
 3. **An LLM (Claude)** uses those examples to explain *why* the message is spam or not.
 
-```
+```text
 New message -> Naive Bayes -> embed -> FAISS retrieval -> LLM explanation -> result
 ```
 
 ## Tech stack
+
 Python, scikit-learn, sentence-transformers, FAISS, Claude API, Streamlit
 
 ## Setup
@@ -30,11 +31,13 @@ python benchmark.py                  # (optional) Naive Bayes vs zero-shot LLM
 The dataset downloads automatically on first run.
 
 ### Optional: enable LLM explanations
+
 Without a key, the app still works and shows a simple rule-based explanation.
 
 ```bash
 # Mac/Linux
 export ANTHROPIC_API_KEY="your_key"
+
 # Windows (cmd)
 set ANTHROPIC_API_KEY=your_key
 ```
@@ -51,14 +54,22 @@ set ANTHROPIC_API_KEY=your_key
 | `benchmark.py` | Compares Naive Bayes with a zero-shot LLM |
 
 ## Results
-Fill these in after running:
+
+The dataset contains **5,572 SMS messages**, with approximately **13.4% spam**.
+
+The TF-IDF + Naive Bayes model was evaluated on a test set of **1,115 messages**.
 
 | Model | Precision (spam) | Recall (spam) | F1 (spam) |
-|---|---|---|---|
-| Naive Bayes + TF-IDF | | | |
-| Zero-shot LLM | | | |
+|---|---:|---:|---:|
+| **Naive Bayes + TF-IDF** | **0.99** | **0.91** | **0.95** |
+| Zero-shot LLM | Not evaluated | Not evaluated | Not evaluated |
+
+**Overall accuracy: 99%**
+
+The zero-shot LLM benchmark requires an Anthropic API key and has not been run yet.
 
 ## Key learnings
+
 - Accuracy alone is misleading on imbalanced data (~13% spam), so precision/recall/F1 matter.
 - RAG grounds the LLM's explanation in real labeled examples instead of guesses.
 - Classical ML is fast and cheap; the LLM adds explainability.
