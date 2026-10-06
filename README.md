@@ -68,7 +68,6 @@ The TF-IDF + Naive Bayes model was evaluated on a test set of **1,115 messages**
 
 The RAG retrieval module was successfully tested using the `all-MiniLM-L6-v2` sentence-transformer model and FAISS. For a sample spam message, the system retrieved five highly similar labeled messages, all of which were classified as spam.
 
-The zero-shot LLM benchmark requires an Anthropic API key and has not been run yet.
 
 ## Key learnings
 
