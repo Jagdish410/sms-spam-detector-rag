@@ -66,10 +66,12 @@ The TF-IDF + Naive Bayes model was evaluated on a test set of **1,115 messages**
 
 **Overall accuracy: 99%**
 
+The RAG retrieval module was successfully tested using the `all-MiniLM-L6-v2` sentence-transformer model and FAISS. For a sample spam message, the system retrieved five highly similar labeled messages, all of which were classified as spam.
+
 The zero-shot LLM benchmark requires an Anthropic API key and has not been run yet.
 
 ## Key learnings
 
 - Accuracy alone is misleading on imbalanced data (~13% spam), so precision/recall/F1 matter.
-- RAG grounds the LLM's explanation in real labeled examples instead of guesses.
+- RAG can ground the LLM's explanation in real labeled examples instead of relying only on the LLM's own knowledge.
 - Classical ML is fast and cheap; the LLM adds explainability.
